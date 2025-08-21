@@ -1,16 +1,54 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Main main = new Main();
+    }
+/* ROLL OFF:
+You and bot roll 2d6 na the higher total wins
+ */
+    public Main(){
+        System.out.println("Welcome to Roll Off \nYou and bot roll 2d6 na the higher total wins");
+        start();
+    }
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-            //do you see this
+    private int randomD6(){
+        return (int)((Math.random()* 6)+1);
+    }
+
+    private void Game(){
+        int pRoll1 = randomD6();
+        int pRoll2 = randomD6();
+        int pTotal = pRoll1 + pRoll2;
+        System.out.println("You rolled " + pRoll1 + " and " + pRoll2 + " for a TOTAL of "+ pTotal);
+        int bRoll1 = randomD6();
+        int bRoll2 = randomD6();
+        int bTotal = bRoll1 + bRoll2;
+        System.out.println("Bot rolled " + bRoll1 + " and " + bRoll2 + " for a TOTAL of "+ bTotal);
+
+        if (pTotal > bTotal){
+            System.out.println("You win!");
+        } else if (pTotal < bTotal) {
+            System.out.println("You lose!");
+        }
+        else{
+            System.out.println("you Tied");
         }
     }
+
+    private void start(){
+        System.out.println("Enter 'Roll' to start: ");
+        Scanner input = new Scanner(System.in);
+        String startMsg = input.nextLine();
+        if(startMsg.equals("Roll")){
+            Game();
+        }
+        else{
+            start();
+        }
+    }
+
+
+
+
 }
