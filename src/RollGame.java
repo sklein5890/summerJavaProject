@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
-public class Main {
+public class RollGame {
     public static void main(String[] args) {
-        Main main = new Main();
+        RollGame main = new RollGame();
     }
 /* ROLL OFF:
 You and bot roll 2d6 na the higher total wins
  */
-    public Main(){
-        System.out.println("Welcome to Roll Off \nYou and bot roll 2d6 na the higher total wins");
+    public RollGame(){
+        System.out.println("Welcome to Roll Off \nYou and bot roll 2d6 and the higher total wins");
         start();
     }
 
@@ -33,6 +33,13 @@ You and bot roll 2d6 na the higher total wins
         }
         else{
             System.out.println("you Tied");
+        }
+        System.out.println("Do you want ot play again? (Y)es or (N)o: ");
+        Scanner sc = new Scanner(System.in);
+        String replayChoice = sc.nextLine();
+        if (replayChoice.equals("Y")){start();}
+        else  if (replayChoice.equals("N")){
+            System.out.println("Goodbye!");
         }
     }
 
